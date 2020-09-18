@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const Form = () => {
- //setting state for form data
+ //setting state for form dataπ
 
 const [formData, setFormData] = useState({
     name: '',
@@ -68,9 +68,9 @@ const submitFunction = (event) => {
 //yup variable
     const dataSchema = yup.object().shape({
         name:   yup.string().required("Name Is Required"),
-        email:  yup.string().email("Must Be Valid Email").required("Email is required"),
+        email:  yup.string().email("Must Be A Valid Email!!!").required("Email is required"),
         password: yup.string().required("Password is required"),
-        terms:  yup.boolean().oneOf([true], "Must Accept Terms Of Surrender")
+        terms:  yup.boolean().oneOf([true], "Must Accept Terms Of Service")
     });
 //use effect to check state versus yup requirements
     useEffect(() => {
@@ -82,7 +82,7 @@ const submitFunction = (event) => {
     return(
         <form onSubmit = {submitFunction}>
             <label htmlFor = "name">
-                Name
+                Name :
                 <input id = "name"
                        type = "text" 
                        name = "name"
@@ -92,7 +92,7 @@ const submitFunction = (event) => {
               {errors.name.length > 0 ? <p>{errors.name}</p> : null}
             </label>
             <label htmlFor = "email">
-                Email
+                Email :
                 <input id = "email" 
                        type = "email" 
                        name = "email"
@@ -102,7 +102,7 @@ const submitFunction = (event) => {
                 {errors.email.length > 0 ? <p>{errors.email}</p> : null}
             </label>
             <label htmlFor = "password">
-                Password
+                Password :
                 <input id = "password"
                        type = "password" 
                        name = "password"
